@@ -1,0 +1,28 @@
+C1 PHASE A — COMMAND AND ACCESS LOG (read-only)  — UTC 2026-11-04, first network call 12:00:21Z
+Operator limits: READ-ONLY. No write credentials requested or used. No repository mutation. No code from either repo executed.
+Local sandbox clones (git clone --no-checkout; git fetch refs/pull/*/head) are scratch copies, not writes to the remotes.
+
+ACCESS RESULTS
+  api.github.com/repos/kkbb22/ARGON-AI-OS      HTTP 200  private=false
+  api.github.com/repos/kkbb22/ARGON-HEALTH     HTTP 200  private=false
+  git ls-remote https://github.com/kkbb22/ARGON-AI-OS.git   OK (heads/pull refs listed)
+  git ls-remote https://github.com/kkbb22/ARGON-HEALTH.git  OK
+  github.com web pages                         HTTP 200 (both)
+
+ACCESS FAILURES (exact message, HTTP 403, unauthenticated API, shared egress IP 3.134.131.116):
+  {"message":"API rate limit exceeded for 3.134.131.116. (But here's the good news: Authenticated requests get a higher rate limit. Check out the documentation for more details.)","documentation_url":"https://docs.github.com/rest/overview/resources-in-the-rest-api#rate-limiting"}
+  x-ratelimit-limit: 60  x-ratelimit-remaining: 0  reset: 2026-11-04T12:29:31Z
+  Calls that failed (rate limit, NOT private/missing): pulls/8, pulls/7, commits/<sha>/check-runs, actions/runs?head_sha=, releases, tags,
+  ARGON-HEALTH pulls list, ARGON-AI-OS branches. Classification: rate-limited, unknown result. Retry after reset needs no credentials.
+  Call that succeeded: ARGON-AI-OS pulls?state=all&per_page=30 (8 PRs, all closed+merged).
+
+KEY GIT COMMANDS (all read-only)
+  git ls-remote <url>
+  git clone -q --no-checkout <url> ; git fetch origin '+refs/pull/*/head:refs/remotes/pr/*'
+  git rev-parse origin/main ; git log -1 --format=... <sha> ; git cat-file -t|-e <sha>[:path]
+  git ls-tree -r --long origin/main ; git show origin/main:<path> ; git grep -n -I <re> origin/main -- <paths>
+  git log --all --name-only --format= ; git merge-base --is-ancestor <sha> origin/main
+  git diff --stat <sha>^1 <sha> ; git show --stat <sha>
+  python3 annex_A4_blobsearch.py aios health   (hashes every object blob; searches SHA-256 targets)
+  python3 annex_A5_zipscan.py                  (recursive in-memory scan of 7 tracked zips)
+  python3 annex_A6_inventory_builder.py <repo> origin/main <out.csv>

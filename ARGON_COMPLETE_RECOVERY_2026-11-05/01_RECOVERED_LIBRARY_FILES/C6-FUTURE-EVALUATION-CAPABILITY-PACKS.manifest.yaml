@@ -1,0 +1,63 @@
+artifact_id: c6-future-evaluation-capability-packs-v3
+filename: C6-FUTURE-EVALUATION-CAPABILITY-PACKS.md
+cloud: C6
+wave: UNKNOWN  # not stated in the task; the C6 research manifest's baseline wave was cloud-evolution-sprint (same treatment as the C2 future-pack manifest)
+
+system_scope: ai_engineering_os
+repository_target: none
+execution_target: deliverable_output
+
+task_id: ACTION-02  # planning/NEXT-ACTIONS.md "Author C6 Future Capability Packs"; prompt pack 2026-10-14, C6 section; reconciliation pass
+
+status: DESIGNED
+implementation_status: NOT_IMPLEMENTED
+evidence_status: PARTIAL  # repository inspection, hash checks and identifier audit executed this run; one external source (UTBoost) re-verified earlier in this engagement;
+                          # TEST SPECIFIED only: TEST EXECUTED = 0, PASS WITH EVIDENCE = 0
+
+acceptance_state: STAGING_CANDIDATE_NOT_ACCEPTED_NOT_MERGED  # staging candidate only; not in the repository; no acceptance record exists
+
+created_utc: "2026-10-15T19:53:28Z"
+
+supersedes:
+  - artifact_id: c6-future-evaluation-capability-packs-v2   # previous staged candidate, never in the repository
+    sha256: 3dd7ca206c74a85f9be0273f2e2a3ed99f19dcf69d1d27896e5765f92c26017b
+    reason: "Reconciliation pass: corrected external-health count (15 -> 16, verified), added acceptance-state and coverage tables, source traceability, ENG-001 citations, pack-title alignment. Preserved byte-for-byte."
+  - artifact_id: c6-future-evaluation-capability-packs-v1-prior-draft
+    sha256: 189026e10687ee4412a3a6be2fdc1fe43b1dfbc360c3fc48ce8285338fcbf049
+    reason: "Own earlier non-canonical draft; reconciled in v2."
+  - artifact_id: fcp-c6-eval-capability-packs-v1
+    sha256: 16fd0acc80453d22096e7327ccce24a1a2ba1fc7b57dc64f5ccc7ffdd580230d
+    reason: "Earlier non-canonical draft."
+  - artifact_id: fcp-c6-eval-capability-packs-addendum-01
+    sha256: 0bae55812c0eecc50ae4a0ff1ac3b33afc934c3d6ca12a015e967084234815ae
+    reason: "Earlier non-canonical draft."
+  - artifact_id: fcp-c6-eval-capability-packs-addendum-02
+    sha256: 997b8d602fc53bdd4a73c4b23d90eb5ef04fa127eb1fc73d55ab4cf97f8c2636
+    reason: "Earlier non-canonical draft."
+
+source_count: 1  # external sources re-verified by the author (UTBoost, arXiv:2506.09289). Internal inputs and hashes: section 1.2 of the .md; identifier audit: section 11.
+
+report_sha256: 213f25a5222a5bfa8a2c6e32df27b565403fcf4ea34d9be5af01d4086d2f020e
+  # sha256 of the exact bytes of C6-FUTURE-EVALUATION-CAPABILITY-PACKS.md (401 lines, LF only, no CR bytes),
+  # computed with sha256sum and independently with Python hashlib after the final edit; newlines not normalized.
+  # The .md carries only the literal line report_sha256: recorded_in_manifest. Recompute if the .md changes.
+
+source_txt:   # SEPARATE from the artifact hash above; values are DECLARED by the prompt pack and UNVERIFIED (file not provided)
+  filename: "c2-c6(1).TXT"
+  declared_sha256: a542be977e7af20dfe90be08585b1a05e094351805a0d8c9dcb22301b2d0039a
+  declared_line_range: "1771-2240"
+  available_to_author: false
+  raw_extraction_preserved: false  # blocked: source not provided
+
+input_integrity_recheck:
+  repository: https://github.com/kkbb22/ARGON-AI-OS.git
+  main_commit: 71a3fa6d1fb1eed0e694886263710d4020e10341   # re-checked with git ls-remote this run; equals local HEAD
+  tracked_files: 79
+  external_health_files: 16          # corrected from 15; NUL-separated git ls-tree -z recount
+  external_health_blobs_fetched: 0   # all 16 reported missing by git rev-list --objects --all --missing=print
+  c6_engine_report_sha256_matches_its_manifest: true
+  c1_c2_c3_c4_c5_report_sha256_match_their_manifests: true
+  c2_c5_future_pack_hashes_match_their_manifests: true
+  consumed_identifiers_missing_from_sources: 0   # section 11 audit
+  inputs_unchanged_since_first_read: true        # read-only clone, git status clean
+  inputs_not_supplied: ["c2-c6(1).TXT", "local D: drive files", "normalized Plan/Act mutation matrix (not in repository tree)"]

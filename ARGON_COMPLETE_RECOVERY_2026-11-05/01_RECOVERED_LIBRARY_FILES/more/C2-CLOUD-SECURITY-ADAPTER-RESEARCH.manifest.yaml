@@ -1,0 +1,85 @@
+artifact_id: C2-CLOUD-SECURITY-ADAPTER-RESEARCH
+filename: C2-CLOUD-SECURITY-ADAPTER-RESEARCH.md
+cloud: C2
+wave: cloud-evolution-sprint
+
+system_scope: ai_engineering_os
+repository_target: none
+execution_target: deliverable_output
+
+task_id: UNASSIGNED  # no Task Packet system exists yet
+status: DESIGNED
+implementation_status: NOT_IMPLEMENTED
+evidence_status: DOCUMENTATION_ONLY
+
+created_utc: "2026-09-21T09:06:55Z"  # this Final Correction Pass v4 revision
+supersedes:
+  - artifact_id: C2-CLOUD-SECURITY-ADAPTER-RESEARCH
+    report_sha256: fceb5bd2fb6f7c7643874f2ca4c985f5d28077b9ac0e70701702b21a5b59bc4a
+    reason: >
+      Correction Pass v1 version. This revision (Final Correction Pass v4) normalizes
+      the C7 Finding Matrix to the v4-required columns (Finding/Status/What
+      changed/Evidence) and status vocabulary (FIXED/REFRAMED/DOWNGRADED/UNKNOWN/
+      NEEDS EXPERIMENT/DISPUTED-EVIDENCE PROVIDED), aligns Plan/Act terminology to
+      "mutation-capable" per v4 §4, widens the RP-1 test-scope list to the exact
+      5-item enumeration in v4 §11 X1, and adds the in-file Hash Contract line
+      (report_sha256: recorded_in_manifest). No substantive finding content changed
+      beyond terminology and format normalization — see the C7 v3 Finding Matrix in
+      the .md file for the full accounting.
+  - artifact_id: C2-CLOUD-SECURITY-ADAPTER-RESEARCH
+    report_sha256: ab44fbd060a544f3b6b8ee18c6b81f4718982314a4ae356f26a02008648ce542
+    reason: Pre-Correction-Pass-v1 version.
+  - artifact_id: C2-CLOUD-SECURITY-ADAPTER-RESEARCH
+    report_sha256: e3bccda9f5f4bd537ac82cbfba5ca2e30ec61dfb3b37f5ffad7476487e815cb5
+    reason: Earlier ancestor, superseded before the capability-upgrade appendix pass.
+  - artifact_id: C2-CLOUD-SECURITY-ADAPTER-RESEARCH
+    report_sha256: a09a2c66b1050fdfcef8eef5cd816f23d906c06bd25257b5fc585b8082ac2305
+    reason: Original informal pass, superseded for lacking required structure.
+
+source_count: 14  # distinct sourced patterns (RP-1 through RP-14), unchanged by this pass
+
+report_sha256: c6e95c268aa6b065737933cbeff10761939d8f310cb11db8b9907fb03d000b99
+
+final_correction_pass_v4:
+  c7_v3_audit_file_available: false  # C7-CLOUD-EVOLUTION-FINAL-AUDIT.v3 was not
+                                      # provided to this Cloud in this conversation,
+                                      # in either correction pass — disclosed, not
+                                      # silently assumed away
+  findings_addressed:
+    - id: C2-RP1/X1
+      status: REFRAMED
+    - id: C2-X3
+      status: FIXED
+    - id: C2-X4
+      status: FIXED
+    - id: C2-D6
+      status: FIXED
+    - id: C2-RP13
+      status: DOWNGRADED
+  findings_disputed: []  # none — no factual disagreement with any of the five items,
+                          # only corrections applied
+  findings_not_addressable:
+    - id: C7-CLOUD-EVOLUTION-FINAL-AUDIT.v3
+      status: UNKNOWN
+      reason: file not visible to this Cloud in either correction pass
+
+remaining_unknown_or_needs_experiment:  # deliverable #5, mirrored from the .md file
+  - Full Plan/Act structural enforcement across all 5 test-scope items (RP-1)
+  - Cryptographic action-binding six sub-questions (RP-13)
+  - Sandbox-configuration-injection as a new threat-model entry (RP-10)
+  - Whether third-party MCP servers are in ARGON's scope (RP-11)
+  - Approval-scope tradeoff, narrow single-use vs broad persisted (RP-2 vs RP-13)
+  - Six named C2-priority sources never opened (Roo Code, OpenAI Agents SDK, Goose,
+    SWE-ReX, PydanticAI, LangGraph)
+  - Token-economy research discipline not applied to this research pass
+  - Whether C7-CLOUD-EVOLUTION-FINAL-AUDIT.v3 contains findings beyond the five addressed
+
+dependencies:
+  - C1: feasibility of tool-registration-level PLAN/ACT enforcement across the widened
+      5-item test scope
+  - C3: Evidence Record schema implications, unchanged from before this correction pass
+  - C6: test-catalog implications, unchanged from before this correction pass
+  - C7: v4 must still independently audit this artifact — no such audit has occurred;
+      both correction passes fixed C2's own internal issues against self-enumerated
+      findings, neither is a substitute for an actual C7 review
+next_owner: C7
